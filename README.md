@@ -32,7 +32,7 @@ Script (3)
     
 Script (4)
     
-    chmod +x ./WEZKGOXILW.sh
+    chmod +x ./ZUBDFBMOGU.sh
     
 Script (5)
     
