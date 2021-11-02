@@ -11,6 +11,10 @@ Install git
 Clone the GitHub repository
 
     git clone https://github.com/Matskq/asrsv.git
+    
+Move to the cloned folder
+
+    cd ./asrsv/
 
 ### Scripts
 
