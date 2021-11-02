@@ -16,29 +16,11 @@ Move to the cloned folder
 
     cd ./asrsv/
 
-### Scripts
+### Installing
 
-Make the scripts usable
+Make the installer usable
 
     chmod +x ./installer.sh
-    
-Script (2)
-    
-    chmod +x ./LKREZOZSCK.sh
-    
-Script (3)
-    
-    chmod +x ./NUABILAGGJ.sh
-    
-Script (4)
-    
-    chmod +x ./ZUBDFBMOGU.sh
-    
-Script (5)
-    
-    chmod +x ./XJUOBPLSSG.sh
-
-### Installing
 
 Run the installer
 
