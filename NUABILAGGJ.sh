@@ -8,7 +8,7 @@ cd ${HOME}/yay
 makepkg -si --noconfirm
 
 PKGS=(
-'picom-git'
+'visual-studio-code-bin'
 )
 
 for PKG in "${PKGS[@]}"; do
