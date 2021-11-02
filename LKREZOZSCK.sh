@@ -13,8 +13,7 @@ echo "----------------------------------------"
 
 iso=$(curl -4 ifconfig.co/country-iso)
 timedatectl set-ntp true
-pacman -S --noconfirm pacman-contrib terminus-font
-setfont ter-v22b
+pacman -S --noconfirm pacman-contrib
 sed -i 's/^#Para/Para/' /etc/pacman.conf
 pacman -S --noconfirm reflector rsync grub
 mv /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.backup
@@ -33,7 +32,7 @@ lsblk
 echo "Enter a disk to use for the OS, such as /dev/sda"
 read DISK
 echo "Warning, all data on this disk will be wiped"
-read -p "do you want to continue (y/n):" formatdisk
+read -p "Do you want to continue (y/n):" formatdisk
 case $formatdisk in
 
 y|Y|yes|Yes|YES)
@@ -66,9 +65,9 @@ btrfs subvolume create /mnt/@
 umount /mnt
 ;;
 *)
-echo "Error, rebooting in 3" && sleep 1
-echo "Error, rebooting in 2" && sleep 1
-echo "Error, rebooting in 1" && sleep 1
+echo "Error #FN399, rebooting in 3" && sleep 1
+echo "Error #FN399, rebooting in 2" && sleep 1
+echo "Error #FN399, rebooting in 1" && sleep 1
 reboot now
 ;;
 esac
@@ -80,19 +79,19 @@ mount -t vfat -L EFIBOOT /mnt/boot/
 
 if ! grep -qs '/mnt' /proc/mounts; then
     echo "ERROR #DN4G7, drive is not mounted"
-    echo "Error, rebooting in 3" && sleep 1
-    echo "Error, rebooting in 2" && sleep 1
-    echo "Error, rebooting in 1" && sleep 1
+    echo "Error #DN4G7, rebooting in 3" && sleep 1
+    echo "Error #DN4G7, rebooting in 2" && sleep 1
+    echo "Error #DN4G7, rebooting in 1" && sleep 1
     reboot now
 fi
 
-echo "---------------------------"
-echo "Installing OS on main drive"
-echo "---------------------------"
+echo "-------------"
+echo "Installing OS"
+echo "-------------"
 pacstrap /mnt base base-devel linux linux-firmware vim nano sudo archlinux-keyring wget libnewt --noconfirm --needed
 genfstab -U /mnt >> /mnt/etc/fstab
 echo "keyserver hkp://keyserver.ubuntu.com" >> /mnt/etc/pacman.d/gnupg/gpg.conf
-cp -R ${SCRIPT_DIR} /mnt/root/asrsrv
+cp -R ${SCRIPT_DIR} /mnt/root/asrsv
 cp /etc/pacman.d/mirrorlist /mnt/etc/pacman.d/mirrorlist
 echo "--------"
 echo "Checking"

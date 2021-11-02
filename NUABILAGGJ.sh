@@ -16,9 +16,9 @@ for PKG in "${PKGS[@]}"; do
 done
 
 export PATH=$PATH:~/.local/bin
-cp -r $HOME/asrsrv/dotfiles/* $HOME/.config/
+cp -r $HOME/asrsv/dotfiles/* $HOME/.config/
 pip install konsave
-konsave -i $HOME/asrsrv/kde.knsv
+konsave -i $HOME/asrsv/kde.knsv
 sleep 1
 konsave -a kde
 

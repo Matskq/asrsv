@@ -1,5 +1,5 @@
 #!/bin/bash
-echo -e "\nFinal touch here and there"
+echo -e "\nJust a final touch here and there"
 echo "---------"
 echo "Scrubbing"
 echo "---------"
@@ -10,7 +10,7 @@ else
 fi
 grub-mkconfig -o /boot/grub/grub.cfg
 
-echo -e "\nEnabling essential services"
+echo -e "\nEnabling some services"
 
 ntpd -qg
 systemctl disable dhcpcd.service

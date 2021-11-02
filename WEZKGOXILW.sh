@@ -109,14 +109,14 @@ fi
 echo -e "\nProceeding\n"
 if ! source install.conf; then
 	read -p "Enter a username:" username
-echo "username=$username" >> ${HOME}/asrsrv/install.conf
+echo "username=$username" >> ${HOME}/asrsv/install.conf
 fi
 if [ $(whoami) = "root"  ];
 then
     useradd -m -G wheel,libvirt -s /bin/bash $username 
 	passwd $username
-	cp -R /root/asrsrv /home/$username/
-    chown -R $username: /home/$username/asrsrv
+	cp -R /root/asrsv /home/$username/
+    chown -R $username: /home/$username/asrsv
 	read -p "Enter a hostname:" nameofmachine
 	echo $nameofmachine > /etc/hostname
 else
