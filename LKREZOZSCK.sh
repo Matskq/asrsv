@@ -44,21 +44,21 @@ echo "------------------------"
 sgdisk -Z ${DISK}
 sgdisk -a 2048 -o ${DISK}
 
-sgdisk -n 1::+1M --typecode=1:ef02 --change-name=1:'bios' ${DISK}
-sgdisk -n 2::+100M --typecode=2:ef00 --change-name=2:'efi' ${DISK}
-sgdisk -n 3::-0 --typecode=3:8300 --change-name=3:'root' ${DISK}
+sgdisk -n 1::+1M --typecode=1:ef02 --change-name=1:'BIOSBOOT' ${DISK}
+sgdisk -n 2::+100M --typecode=2:ef00 --change-name=2:'EFIBOOT' ${DISK}
+sgdisk -n 3::-0 --typecode=3:8300 --change-name=3:'ROOT' ${DISK}
 if [[ ! -d "/sys/firmware/efi" ]]; then
     sgdisk -A 1:set:2 ${DISK}
 fi
 
 echo -e "\nSetting up filesystems...\n$HR"
-if [[ ${DISK} =~ "main" ]]; then
-mkfs.vfat -F32 -n "efi" "${DISK}p2"
-mkfs.btrfs -L "root" "${DISK}p3" -f
+if [[ ${DISK} =~ "nvme" ]]; then
+mkfs.vfat -F32 -n "EFIBOOT" "${DISK}p2"
+mkfs.btrfs -L "ROOT" "${DISK}p3" -f
 mount -t btrfs "${DISK}p3" /mnt
 else
-mkfs.vfat -F32 -n "efi" "${DISK}2"
-mkfs.btrfs -L "root" "${DISK}3" -f
+mkfs.vfat -F32 -n "EFIBOOT" "${DISK}2"
+mkfs.btrfs -L "ROOT" "${DISK}3" -f
 mount -t btrfs "${DISK}3" /mnt
 fi
 ls /mnt | xargs btrfs subvolume delete
