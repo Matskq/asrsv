@@ -1,6 +1,12 @@
 #!/bin/bash
 SCRIPT_DIR="$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 
+chmod +x ./LKREZOZSCK.sh
+chmod +x ./NUABILAGGJ.sh
+chmod +x ./ZUBDFBMOGU.sh
+chmod +x ./XJUOBPLSSG.sh
+
+
 echo "----------------------------------------"
 echo "                __          __          "
 echo "  _____ _____ _/  |_  _____|  | ________"
