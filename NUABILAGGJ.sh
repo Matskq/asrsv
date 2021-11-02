@@ -15,12 +15,5 @@ for PKG in "${PKGS[@]}"; do
     yay -S --noconfirm $PKG
 done
 
-export PATH=$PATH:~/.local/bin
-cp -r $HOME/asrsv/dotfiles/* $HOME/.config/
-pip install konsave
-konsave -i $HOME/asrsv/kde.knsv
-sleep 1
-konsave -a kde
-
 echo -e "\nProceeding\n"
 exit
